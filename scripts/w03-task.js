@@ -1,80 +1,85 @@
 /* LESSON 3 - Programming Tasks */
 
 /* FUNCTIONS */
-function add (number1, number2) {
+/* Function Definition - Add Numbers */
+function add (number1, number2){ // set definition of "add"
     return number1 + number2;
-}
+}    
+function addNumbers(){
+    let addNumber1 = Number(document.querySelector("#add1").value);
+    let addNumber2 = Number(document.querySelector("#add2").value);
+    document.querySelector("#sum").value = add(addNumber1, addNumber2);
+    }
+document.querySelector("#addNumbers").addEventListener("click", addNumbers);
 
-let addNumber1 = Number(document.querySelector('#add1').value);
-let addNumber2 = Number(document.querySelector('#add2').value);
-document.querySelector('#sum').value = add(addNumber1, addNumber2);
-
-document.querySelector('#addNumbers').addEventListener('click'. addNumbers);
 /* Function Expression - Subtract Numbers */
-function Subtract (number1, number2) {
+let subtract = function(number1, number2){ // set definition of "subtract"
     return number1 - number2;
 }
+let subtractNumbers = function(){
+    let subNumber1 = Number(document.querySelector("#subtract1").value);
+    let subNumber2 = Number(document.querySelector("#subtract2").value);
+    document.querySelector("#difference").value = subtract(subNumber1, subNumber2);
+}
+document.querySelector("#subtractNumbers").addEventListener("click", subtractNumbers);
 
-let subtractNumber1 = Number(document.querySelector('#subtract1').value);
-let subtractNumber2 = Number(document.querySelector('#subtract2').value);
-document.querySelector('#difference').value = add(subtractNumber1, subtractNumber2);
 
 /* Arrow Function - Multiply Numbers */
-function Multiply (number1, number2) {
-    return number1 * number2;
+let multiply = (number1, number2) => number1 * number2;
+let multiplyNumbers = () => {
+    let mulNumber1 = Number(document.querySelector("#factor1").value);
+    let mulNumber2 = Number(document.querySelector("#factor2").value);
+    document.querySelector("#product").value = multiply(mulNumber1, mulNumber2);
 }
+document.querySelector("#multiplyNumbers").addEventListener("click", multiplyNumbers);
 
-let multiplyNumber1 = Number(document.querySelector('#factor1').value);
-let multiplyNumber2 = Number(document.querySelector('#factor2').value);
-document.querySelector('#product').value = add(multiplyNumber1, multiplyNumber2);
 
 /* Open Function Use - Divide Numbers */
-function Divide (number1, number2) {
-    return number1 / number2;
-}
+let divide = (number1, number2) => number1 / number2;
+function divideNumbers(){
+    let divNumber1 = Number(document.querySelector("#dividend").value);
+    let divNumber2 = Number(document.querySelector("#divisor").value);
+    document.querySelector("#quotient").value = divide(divNumber1, divNumber2);
+    }
+document.querySelector("#divideNumbers").addEventListener("click", divideNumbers);
 
-let divideNumber1 = Number(document.querySelector('#dividend').value);
-let divideNumber2 = Number(document.querySelector('#divisor').value);
-document.querySelector('#quotient').value = add(divideNumber1, divideNumber2);
 
 /* Decision Structure */
-let subtotalField = document.getElementById('subtotal');
-let membershipCheckbox = document.getElementById('membership');
-let getTotalButton = document.getElementById('getTotalButton');
-let totalSpan = document.getElementById('total');
-
-getTotalButton.addEventListener('click', calculateTotal);
-
-function calculateTotal() {
-    const subtotal = parseFloat(subtotalField.value);
-
-    const hasMembership = membershipCheckbox.checked;
-
-    const discount = hasMembership ?0.15 : 0;
-
-    const totalAmount = subtotal * (1 - discount);
-
-    totalSpan.textContent = 'Total Due: $${totalAmount.toFixed(2)}';
+function getTotal(){
+    let sTotal = Number(document.querySelector("#subtotal").value);
+    let fullTotal;
+    if (document.getElementById("member").checked){
+        fullTotal = sTotal - (sTotal * .15);
+    } else { 
+        fullTotal = sTotal;
+    }
+    document.querySelector("#total").textContent = `$ ${fullTotal.toFixed(2)}`;
 }
+
+document.querySelector("#getTotal").addEventListener("click", getTotal);
+
 /* ARRAY METHODS - Functional Programming */
-let numbersArray = [1,2,3,4,5,6,7,8,9,10,11,12,13];
-
-document.querySelector('#odds').innerHTML = numbersArray.filter(number => number %2);
-document.querySelector('#evens').innerHTML = numbersArray.filter(number => number %2 === 0);
-
-numbersArray.reduce((sum, number) => sum + number)
-
-numbersArray.map(number => number * 2)
-
-numbersArray.map(number => number * 2).reduce((sum, number) => sum + number);
 /* Output Source Array */
+let numbersArray = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+document.getElementById("array").innerText = numbersArray;
 
 /* Output Odds Only Array */
+let oddArray = numbersArray.filter(number => number % 2);
+document.getElementById("odds").innerText = oddArray;
 
 /* Output Evens Only Array */
+let evenArray = numbersArray.filter(number => number % 2 === 0);
+document.getElementById("evens").innerText = evenArray;
 
 /* Output Sum of Org. Array */
+let sumArray = numbersArray.reduce((sum, number) => sum + number) // this is like putting rocks into a bag, with each rock having a number on it. you add each number together as you put them in, and that's the sumArray!
+document.getElementById("sumOfArray").innerText = sumArray;
 
 /* Output Multiplied by 2 Array */
+let multiArray = numbersArray.map(number => number * 2)
+document.getElementById("multiplied").innerText = multiArray;
 
 /* Output Sum of Multiplied by 2 Array */
+let smArray = numbersArray.map(number => number * 2);
+let grandSum = smArray.reduce((sum, number) => sum + number, 0);
+document.getElementById("sumOfMultiplied").innerText = grandSum;
