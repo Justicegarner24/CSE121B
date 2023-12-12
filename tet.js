@@ -1,4 +1,4 @@
-// my tetris project!!!
+// my tetris
 var Page = {  
   IsSetup: false,
   
