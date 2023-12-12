@@ -17,7 +17,7 @@ var Page = {
     
     var bodyW = document.documentElement.clientWidth,
         bodyH = document.documentElement.clientHeight,
-        newUnitW = (bodyW - (bodyW % 70)) / 16,
+        newUnitW = (bodyW - (bodyW % 80)) / 16,
         newUnitH = (bodyH - (bodyH % 100)) / 20,
         newUnitMin = Math.max(Math.min(newUnitW, newUnitH), 20);    
     
