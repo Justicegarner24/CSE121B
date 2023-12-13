@@ -1,4 +1,14 @@
-// my tetris
+
+//  TODO:
+//    * touch controls
+//    * allow late piece rotation
+//    * code cleanup
+
+
+//--------------------------------------------------//
+//    PAGE OBJECT & LOGIC                           //
+//--------------------------------------------------//
+
 var Page = {  
   IsSetup: false,
   
