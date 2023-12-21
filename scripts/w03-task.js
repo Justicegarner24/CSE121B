@@ -59,7 +59,6 @@ function getTotal(){
 document.querySelector("#getTotal").addEventListener("click", getTotal);
 
 /* ARRAY METHODS - Functional Programming */
-/* Output Source Array */
 let numbersArray = [1,2,3,4,5,6,7,8,9,10,11,12,13];
 document.getElementById("array").innerText = numbersArray;
 

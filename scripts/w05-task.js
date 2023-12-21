@@ -1,9 +1,7 @@
 /* W05: Programming Tasks */
-
-/* Declare and initialize global variables */
 const templesElement = document.querySelector("#temples");
 let templeList = [];
-/* async displayTemples Function */
+
 const displayTemples = (temples) => {
     temples.forEach(temple => {
         const articleElement = document.createElement('article');
@@ -19,7 +17,6 @@ const displayTemples = (temples) => {
         templesElement.appendChild(articleElement);
     });
 }
-/* async getTemples Function using fetch()*/
 const getTemples = async () => {
     const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json");
     if (response.ok) {
@@ -27,11 +24,10 @@ const getTemples = async () => {
         displayTemples(templeList);
       }
 }
-/* reset Function */
+
 const reset = () => {
     templesElement.innerHTML = "";
 }
-/* sortBy Function */
 const sortBy = () => {
     reset();
     const filter = document.querySelector("#sortBy").value;
@@ -56,5 +52,4 @@ const sortBy = () => {
 }
 getTemples();
 
-/* Event Listener */
 document.querySelector("#sortBy").addEventListener("change", () => { sortBy(templeList) });
